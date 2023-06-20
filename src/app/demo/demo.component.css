@@ -1,3 +1,29 @@
-.fontSize28{
-    font-size:28px;
+.fontSize28 {
+    font-size: 28px;
+}
+.fontSize16 {
+    font-size: 16px;
+}
+
+.marg-t-20 {
+    margin-top: 20px !important;
+}
+
+.button_center {
+    display: flex;
+    justify-content: center;
+}
+.submitBtn{
+    height: 40px ;
+    width: 120px;
+    font-size: 16px;
+    background-color: #14183a; 
+    color:#fff; 
+    border-radius:8px;
+}
+.marg-t-8{
+    margin-top:8px;
+}
+.padd_20_15{
+    padding:20px 15px; 
 }
