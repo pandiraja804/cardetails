@@ -22,15 +22,13 @@ export class DemoComponent implements OnInit {
 
   @ViewChild('paginator') paginator!: MatPaginator;
 
-  columnsToDisplay = ['name', 'username', 'email',];
+  columnsToDisplay = ['slno', 'companyname', 'countryname',];
 
   constructor(private ApiService: ApiService, private ref: ChangeDetectorRef) {
 
   }
 
-
-
-  applyFilter(event: Event) {
+ applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
@@ -38,6 +36,8 @@ export class DemoComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  
   ngOnInit() {
     this.getApis();
   }
@@ -59,15 +59,13 @@ export class DemoComponent implements OnInit {
           this.showData = false;
         }
 
-
-
       }
     })
   }
 
   selectCompany(event: any) {
     this.companyName = event.value;
- }
+  }
 
   selectCountry(event: any) {
     this.countryName = event.value;
@@ -75,23 +73,16 @@ export class DemoComponent implements OnInit {
 
   submitBtn() {
 
-    if(this.companyName !=""){
-    
-      this.dataSource = this.companyList.reverse().filter((o: any, i: any) => o.company == this.companyName);
+    if (this.companyName != "") {
+
+      this.dataSource = this.companyList.filter((o: any, i: any) => o.company == this.companyName);
     }
 
-    if(  this.countryName !=""){
-      this.dataSource = this.companyList.reverse().filter((o: any, i: any) => o.country == this.countryName);
+    if (this.countryName != "") {
+      this.dataSource = this.companyList.filter((o: any, i: any) => o.country == this.countryName);
     }
-
-
 
   }
-
-
-
-
-
 
 }
 
